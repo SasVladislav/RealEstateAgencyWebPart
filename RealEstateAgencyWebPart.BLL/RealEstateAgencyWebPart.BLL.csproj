@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7BA0A9DF-A48B-4D73-BE2E-7401CD3C4E99}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RealEstateAgencyWebPart.BLL</RootNamespace>
+    <AssemblyName>RealEstateAgencyWebPart.BLL</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=6.0.2.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.6.0.2\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GenericService\GenericServiceEntity.cs" />
+    <Compile Include="Interfaces\IEmployeeRealEstateService.cs" />
+    <Compile Include="Interfaces\IEmployeeDismissService.cs" />
+    <Compile Include="Interfaces\IEmployeeDismissStateService.cs" />
+    <Compile Include="Interfaces\IEmployeeService.cs" />
+    <Compile Include="Interfaces\IJournalService.cs" />
+    <Compile Include="Interfaces\IJournalStateOrderService.cs" />
+    <Compile Include="Interfaces\IPersonAccessRoleService.cs" />
+    <Compile Include="Interfaces\IRealEstateClassService.cs" />
+    <Compile Include="Interfaces\IRealEstateService.cs" />
+    <Compile Include="Interfaces\IRealEstateStateService.cs" />
+    <Compile Include="Interfaces\IRealEstateTypeService.cs" />
+    <Compile Include="Interfaces\IRealEstateTypeWallService.cs" />
+    <Compile Include="Interfaces\IUserService.cs" />
+    <Compile Include="Models\EmployeeView.cs" />
+    <Compile Include="Models\RealEstateView.cs" />
+    <Compile Include="Models\EmployeeDTO.cs" />
+    <Compile Include="Models\EmployeeDismissDTO.cs" />
+    <Compile Include="Models\EmployeeDismissStateDTO.cs" />
+    <Compile Include="Models\EmployeeRealEstateDTO.cs" />
+    <Compile Include="Models\JournalDTO.cs" />
+    <Compile Include="Models\JournalStateOrderDTO.cs" />
+    <Compile Include="Models\PersonAbstractDTO.cs" />
+    <Compile Include="Models\PersonAccessRoleDTO.cs" />
+    <Compile Include="Models\RealEstateDTO.cs" />
+    <Compile Include="Models\RealEstateClassDTO.cs" />
+    <Compile Include="Models\RealEstateStateDTO.cs" />
+    <Compile Include="Models\RealEstateTypeDTO.cs" />
+    <Compile Include="Models\RealEstateTypeWallDTO.cs" />
+    <Compile Include="Models\UserDTO.cs" />
+    <Compile Include="Models\ViewModels\EmployeeRealEstateView.cs" />
+    <Compile Include="Models\ViewModels\JournalView.cs" />
+    <Compile Include="Services\EmployeeDismissStateService.cs" />
+    <Compile Include="Services\EmployeeDismissService.cs" />
+    <Compile Include="Services\EmployeeRealEstateService.cs" />
+    <Compile Include="Services\EmployeeService.cs" />
+    <Compile Include="Services\JournalService.cs" />
+    <Compile Include="Services\JournalStateOrderService.cs" />
+    <Compile Include="Services\PersonAccessRoleService.cs" />
+    <Compile Include="Services\RealEstateClassService.cs" />
+    <Compile Include="Services\RealEstateService.cs" />
+    <Compile Include="Services\RealEstateStateService.cs" />
+    <Compile Include="Services\RealEstateTypeService.cs" />
+    <Compile Include="Services\RealEstateTypeWallService.cs" />
+    <Compile Include="Services\UserService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RealEstateAgencyWebPart.DAL\RealEstateAgencyWebPart.DAL.csproj">
+      <Project>{DE1F4BE8-5FDC-4B23-A6BF-4E08EEB0C0C9}</Project>
+      <Name>RealEstateAgencyWebPart.DAL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
