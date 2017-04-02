@@ -62,7 +62,6 @@
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\EmployeeDismiss.cs" />
     <Compile Include="Models\EmployeeDismissState.cs" />
-    <Compile Include="Models\EmployeeRealEstate.cs" />
     <Compile Include="Models\Journal.cs" />
     <Compile Include="Models\JournalStateOrder.cs" />
     <Compile Include="Models\PersonAbstract.cs" />

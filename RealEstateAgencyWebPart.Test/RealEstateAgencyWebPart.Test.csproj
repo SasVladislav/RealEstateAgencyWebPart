@@ -69,7 +69,6 @@
   <ItemGroup>
     <Compile Include="ServicesTest\TestEmployeeDismissService.cs" />
     <Compile Include="ServicesTest\TestEmployeeDismissStateService.cs" />
-    <Compile Include="ServicesTest\TestEmployeeRealEstateService.cs" />
     <Compile Include="ServicesTest\TestEmployeeService.cs" />
     <Compile Include="ServicesTest\TestJournalService.cs" />
     <Compile Include="ServicesTest\TestJournalStateOrderService.cs" />

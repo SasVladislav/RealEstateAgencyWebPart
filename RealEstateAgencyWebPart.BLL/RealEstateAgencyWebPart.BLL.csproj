@@ -45,7 +45,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GenericService\GenericServiceEntity.cs" />
-    <Compile Include="Interfaces\IEmployeeRealEstateService.cs" />
     <Compile Include="Interfaces\IEmployeeDismissService.cs" />
     <Compile Include="Interfaces\IEmployeeDismissStateService.cs" />
     <Compile Include="Interfaces\IEmployeeService.cs" />
@@ -63,7 +62,6 @@
     <Compile Include="Models\EmployeeDTO.cs" />
     <Compile Include="Models\EmployeeDismissDTO.cs" />
     <Compile Include="Models\EmployeeDismissStateDTO.cs" />
-    <Compile Include="Models\EmployeeRealEstateDTO.cs" />
     <Compile Include="Models\JournalDTO.cs" />
     <Compile Include="Models\JournalStateOrderDTO.cs" />
     <Compile Include="Models\PersonAbstractDTO.cs" />
@@ -74,11 +72,9 @@
     <Compile Include="Models\RealEstateTypeDTO.cs" />
     <Compile Include="Models\RealEstateTypeWallDTO.cs" />
     <Compile Include="Models\UserDTO.cs" />
-    <Compile Include="Models\ViewModels\EmployeeRealEstateView.cs" />
     <Compile Include="Models\ViewModels\JournalView.cs" />
     <Compile Include="Services\EmployeeDismissStateService.cs" />
     <Compile Include="Services\EmployeeDismissService.cs" />
-    <Compile Include="Services\EmployeeRealEstateService.cs" />
     <Compile Include="Services\EmployeeService.cs" />
     <Compile Include="Services\JournalService.cs" />
     <Compile Include="Services\JournalStateOrderService.cs" />

@@ -26,7 +26,6 @@ namespace RealEstateAgencyWebPart.DAL.EF
         public DbSet<RealEstateType> RealEstateTypes { get; set; }
         public DbSet<RealEstateState> RealEstateStates { get; set; }
         public DbSet<RealEstateTypeWall> RealEstateTypeWalls { get; set; }
-        public DbSet<EmployeeRealEstate> EmployeesRealEstates { get; set; }
         public DbSet<Journal> Journals { get; set; }
         public DbSet<JournalStateOrder> JournalStateOrders { get; set; }
 

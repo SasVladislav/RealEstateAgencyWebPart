@@ -10,6 +10,5 @@ namespace RealEstateAgencyWebPart.DAL.Models
     {
         public double Salary { get; set; }
         public virtual ICollection<EmployeeDismiss> EmployeeDismisses { get; set; }
-        public virtual ICollection<EmployeeRealEstate> EmployeeRealEstates { get; set; }
     }
 }

@@ -14,8 +14,8 @@ namespace RealEstateAgencyWebPart.Test
     public class TestJournalService
     {
         static int CurrentUserId { get; set; }
-        static int CurrentEmployeeRealEstateNewId { get; set; }
-        static int CurrentEmployeeRealEstateId { get; set; }
+        static int CurrentRealEstateNewId { get; set; }
+        static int CurrentRealEstateId { get; set; }
 
         IJournalService service = new JournalService();
 
@@ -96,24 +96,28 @@ namespace RealEstateAgencyWebPart.Test
                                     RealEstateClassId = resultClassId,
                                     RealEstateStateId = resultStateId,
                                     RealEstateTypeId = resultTypeId,
-                                    RealEstateTypeWallId = resultTypeWallId
+                                    RealEstateTypeWallId = resultTypeWallId,
+                                    EmployeeId= EmployeeId
                                 });
 
-            int EmployeeRealestateId= new EmployeeRealEstateService()
-                                .CreateEmployeesRealEstate(new EmployeeRealEstateDTO()
-            {
-                EmployeeId = EmployeeId,
-                RealEstateId = RealEstateId
-            });
-            CurrentEmployeeRealEstateId = EmployeeRealestateId;
-
-            int NewEmployeeRealestateId = new EmployeeRealEstateService()
-                                .CreateEmployeesRealEstate(new EmployeeRealEstateDTO()
+            int RealEstateNId = new RealEstateService()
+                                .CreateRealEstate(new RealEstateDTO()
                                 {
-                                    EmployeeId = EmployeeNId,
-                                    RealEstateId = RealEstateId
+                                    NumberOfRooms = 3,
+                                    GrossArea = 26554,
+                                    Image = "/Image12",
+                                    Price = 26482547,
+                                    RealEstateClassId = resultClassId,
+                                    RealEstateStateId = resultStateId,
+                                    RealEstateTypeId = resultTypeId,
+                                    RealEstateTypeWallId = resultTypeWallId,
+                                    EmployeeId = EmployeeNId
                                 });
-            CurrentEmployeeRealEstateNewId = NewEmployeeRealestateId;
+
+
+            CurrentRealEstateId = RealEstateId;
+
+            CurrentRealEstateNewId = RealEstateNId;
             int OrderId = new JournalStateOrderService().CreateJournalStateOrder(
                 new JournalStateOrderDTO()
             {
@@ -151,13 +155,13 @@ namespace RealEstateAgencyWebPart.Test
             int resultID = 0;
             //act
             if (service.GetAllJournal().Count() == 0||
-                service.GetJournalByExpression(x=>x.EmployeeRealEstateId==CurrentEmployeeRealEstateId)==null)
+                service.GetJournalByExpression(x=>x.RealEstateId==CurrentRealEstateId)==null)
             {
                 resultID = service.CreateJournal(CreateJournal());
             }
             else
             {
-                resultID = service.GetJournalByExpression(x => x.EmployeeRealEstateId == CurrentEmployeeRealEstateId).Id;
+                resultID = service.GetJournalByExpression(x => x.RealEstateId == CurrentRealEstateId).Id;
             }
             return resultID;
         }
@@ -172,7 +176,7 @@ namespace RealEstateAgencyWebPart.Test
             //act
             resultID = SeedJournal();
 
-            Assert.AreEqual(CurrentEmployeeRealEstateId, service.GetJournalById(resultID).EmployeeRealEstateId);
+            Assert.AreEqual(CurrentRealEstateId, service.GetJournalById(resultID).RealEstateId);
         }
         [TestMethod]
         public void TestJournal_UpdateJournalNamedHomeToOffice_CorrectResult()
@@ -183,10 +187,10 @@ namespace RealEstateAgencyWebPart.Test
             resultID = SeedJournal();
 
             JournalDTO getJournal = service.GetJournalById(resultID);
-            getJournal.EmployeeRealEstateId = CurrentEmployeeRealEstateNewId;
+            getJournal.RealEstateId = CurrentRealEstateNewId;
             service.UpdateJournal(getJournal);
-            CurrentEmployeeRealEstateId = CurrentEmployeeRealEstateNewId;
-            Assert.AreEqual(CurrentEmployeeRealEstateId, service.GetJournalById(resultID).EmployeeRealEstateId);
+            CurrentRealEstateId = CurrentRealEstateNewId;
+            Assert.AreEqual(CurrentRealEstateId, service.GetJournalById(resultID).RealEstateId);
         }
         [TestMethod]
         public void TestJournal_GetJournalNamedHomeById_CorrectResult()
@@ -196,7 +200,7 @@ namespace RealEstateAgencyWebPart.Test
             //act
             resultID = SeedJournal();
 
-            Assert.AreEqual(CurrentEmployeeRealEstateId, service.GetJournalById(resultID).EmployeeRealEstateId);
+            Assert.AreEqual(CurrentRealEstateId, service.GetJournalById(resultID).RealEstateId);
         }
         [TestMethod]
         public void TestJournal_GetAllJournales_CorrectResult()
@@ -216,10 +220,10 @@ namespace RealEstateAgencyWebPart.Test
             //act
             resultID = SeedJournal();
 
-            Assert.AreNotEqual(null, service.GetJournalByExpression(x => x.EmployeeRealEstateId == CurrentEmployeeRealEstateId));
+            Assert.AreNotEqual(null, service.GetJournalByExpression(x => x.RealEstateId == CurrentRealEstateId));
 
             service.DeleteJournal(resultID);
-            Assert.AreEqual(null, service.GetJournalByExpression(x => x.EmployeeRealEstateId == CurrentEmployeeRealEstateId));
+            Assert.AreEqual(null, service.GetJournalByExpression(x => x.RealEstateId == CurrentRealEstateId));
         }
     }
 }

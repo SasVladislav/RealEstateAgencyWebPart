@@ -15,6 +15,7 @@ namespace RealEstateAgencyWebPart.BLL.Models
         public int RealEstateStateId { get; set; }
         public double GrossArea { get; set; }
         public int NumberOfRooms { get; set; }
+        public int EmployeeId { get; set; }
         public double Price { get; set; }
         public string Image { get; set; }
     }

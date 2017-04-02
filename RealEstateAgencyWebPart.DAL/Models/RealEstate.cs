@@ -15,12 +15,13 @@ namespace RealEstateAgencyWebPart.DAL.Models
         public int RealEstateStateId { get; set; }
         public double GrossArea { get; set; }
         public int NumberOfRooms { get; set; }
+        public int EmployeeId { get; set; }
         public double Price { get; set; }
         public string Image { get; set; }
         public virtual RealEstateClass RealEstateClass { get; set; }
+        public virtual Employee Employee { get; set; }
         public virtual RealEstateType RealEstateType { get; set; }
         public virtual RealEstateTypeWall RealEstateTypeWall { get; set; }
         public virtual RealEstateState RealEstateState { get; set; }
-        public virtual ICollection<EmployeeRealEstate> EmployeeRealEstates { get; set; }
     }
 }

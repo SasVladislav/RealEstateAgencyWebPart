@@ -12,13 +12,13 @@ namespace RealEstateAgencyWebPart.DAL.Models
         public int Id { get; set; }
         
         public int PersonId { get; set; }
-        public int EmployeeRealEstateId { get; set; }
+        public int RealEstateId { get; set; }
         public DateTime DateViewRealEstate { get; set; }
         public int JournalStateOrderId { get; set; }
         public DateTime DateRecord { get; set; }
         //[ForeignKey("UserId")]
         public virtual User User { get; set; }
-        public virtual EmployeeRealEstate EmployeeRealEstate { get; set; }
+        public virtual RealEstate RealEstate { get; set; }
         public virtual JournalStateOrder JournalStateOrder { get; set; }
     }
 }
