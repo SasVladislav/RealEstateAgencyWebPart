@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\Администратор\Desktop\Asp.Net Web Api2\RealEstateAgencyWebPart\RealEstateAgencyWebPart.View\RealEstateAgencyModel.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\Администратор\Desktop\RealEstateAgencyWebPart\RealEstateAgencyWebPart.View\RealEstateAgencyModel.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

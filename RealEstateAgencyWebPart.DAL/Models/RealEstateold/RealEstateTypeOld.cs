@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace RealEstateAgencyWebPart.DAL.Models
 {
-    public class RealEstateType
+    public class RealEstateTypeOld
     {
         public int Id { get; set; }
         public string RealEstateTypeName { get; set; }
-        public virtual ICollection<RealEstate> RealEstates { get; set; }
+        public virtual ICollection<RealEstateOld> RealEstates { get; set; }
     }
 }

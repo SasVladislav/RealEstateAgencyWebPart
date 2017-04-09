@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RealEstateAgencyWebPart.DAL.Models
 {
-    public class RealEstate
+    public class RealEstateOld
     {
         public int Id { get; set; }
         public int RealEstateClassId { get; set; }
@@ -18,10 +18,10 @@ namespace RealEstateAgencyWebPart.DAL.Models
         public int EmployeeId { get; set; }
         public double Price { get; set; }
         public string Image { get; set; }
-        public virtual RealEstateClass RealEstateClass { get; set; }
+        public virtual RealEstateClassOld RealEstateClass { get; set; }
         public virtual Employee Employee { get; set; }
-        public virtual RealEstateType RealEstateType { get; set; }
-        public virtual RealEstateTypeWall RealEstateTypeWall { get; set; }
-        public virtual RealEstateState RealEstateState { get; set; }
+        public virtual RealEstateTypeOld RealEstateType { get; set; }
+        public virtual RealEstateTypeWallOld RealEstateTypeWall { get; set; }
+        public virtual RealEstateStateOld RealEstateState { get; set; }
     }
 }

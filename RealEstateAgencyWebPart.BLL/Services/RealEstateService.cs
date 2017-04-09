@@ -15,47 +15,47 @@ namespace RealEstateAgencyWebPart.BLL.Services
 {
     public class RealEstateService: IRealEstateService
     {
-        GenericServiceEntity<RealEstate> service = new GenericServiceEntity<RealEstate>();
+        GenericServiceEntity<RealEstateOld> service = new GenericServiceEntity<RealEstateOld>();
 
         public IEnumerable<RealEstateDTO> GetAllRecordsRealEstateByExpression(Expression<Func<RealEstateDTO, bool>> whereDTO = null)
         {
-            Mapper.Initialize(cfg => cfg.CreateMap<RealEstate, RealEstateDTO>());
-            Expression<Func<RealEstate, bool>> where = Mapper.Map<Expression<Func<RealEstate, bool>>>(whereDTO);
+            Mapper.Initialize(cfg => cfg.CreateMap<RealEstateOld, RealEstateDTO>());
+            Expression<Func<RealEstateOld, bool>> where = Mapper.Map<Expression<Func<RealEstateOld, bool>>>(whereDTO);
 
-            Mapper.Initialize(cfg => cfg.CreateMap<RealEstate, RealEstateDTO>());
-            List<RealEstateDTO> RealEstates = Mapper.Map<List<RealEstate>, List<RealEstateDTO>>(service.FindAll(where).ToList());
+            Mapper.Initialize(cfg => cfg.CreateMap<RealEstateOld, RealEstateDTO>());
+            List<RealEstateDTO> RealEstates = Mapper.Map<List<RealEstateOld>, List<RealEstateDTO>>(service.FindAll(where).ToList());
 
             return RealEstates;
         }
 
         public IEnumerable<RealEstateDTO> GetAllRealEstates()
         {
-            Mapper.Initialize(cfg => cfg.CreateMap<RealEstate, RealEstateDTO>());
-            List<RealEstateDTO> list = Mapper.Map<List<RealEstate>, List<RealEstateDTO>>(service.FindAll().ToList());
+            Mapper.Initialize(cfg => cfg.CreateMap<RealEstateOld, RealEstateDTO>());
+            List<RealEstateDTO> list = Mapper.Map<List<RealEstateOld>, List<RealEstateDTO>>(service.FindAll().ToList());
 
             return list;
         }
         public RealEstateDTO GetRealEstateByExpression(Expression<Func<RealEstateDTO, bool>> whereDTO = null)
         {
-            Mapper.Initialize(cfg => cfg.CreateMap<RealEstate, RealEstateDTO>());
-            Expression<Func<RealEstate, bool>> where = Mapper.Map<Expression<Func<RealEstate, bool>>>(whereDTO);
+            Mapper.Initialize(cfg => cfg.CreateMap<RealEstateOld, RealEstateDTO>());
+            Expression<Func<RealEstateOld, bool>> where = Mapper.Map<Expression<Func<RealEstateOld, bool>>>(whereDTO);
 
-            Mapper.Initialize(cfg => cfg.CreateMap<RealEstate, RealEstateDTO>());
-            RealEstateDTO realEstate = Mapper.Map<RealEstate, RealEstateDTO>(service.FindOne(where));
+            Mapper.Initialize(cfg => cfg.CreateMap<RealEstateOld, RealEstateDTO>());
+            RealEstateDTO realEstate = Mapper.Map<RealEstateOld, RealEstateDTO>(service.FindOne(where));
 
             return realEstate;
         }
         public RealEstateDTO GetRealEstateById(int idRealEstate)
         {
-            Mapper.Initialize(cfg => cfg.CreateMap<RealEstate, RealEstateDTO>());
-            RealEstateDTO realEstateObjectDto = Mapper.Map<RealEstate, RealEstateDTO>(service.FindById(idRealEstate));
+            Mapper.Initialize(cfg => cfg.CreateMap<RealEstateOld, RealEstateDTO>());
+            RealEstateDTO realEstateObjectDto = Mapper.Map<RealEstateOld, RealEstateDTO>(service.FindById(idRealEstate));
 
             return realEstateObjectDto;
         }
 
         public List<RealEstateDTO> FilterRealEstates(RealEstateDTO realEstate)
         {
-            List<RealEstateDTO> list = Mapper.Map<List<RealEstate>, List<RealEstateDTO>>(service.FindAll().ToList());
+            List<RealEstateDTO> list = Mapper.Map<List<RealEstateOld>, List<RealEstateDTO>>(service.FindAll().ToList());
             if (realEstate.Id != 0) list = list.Where(x => x.Id == realEstate.Id).ToList();
             if (realEstate.RealEstateClassId != 0) list = list.Where(x => x.RealEstateClassId == realEstate.RealEstateClassId).ToList();
             if (realEstate.RealEstateStateId != 0) list = list.Where(x => x.RealEstateStateId == realEstate.RealEstateStateId).ToList();
@@ -66,8 +66,8 @@ namespace RealEstateAgencyWebPart.BLL.Services
 
         public int CreateRealEstate(RealEstateDTO realEstateDto)
         {
-            Mapper.Initialize(cfg => cfg.CreateMap<RealEstateDTO, RealEstate>());
-            RealEstate realEstate = Mapper.Map<RealEstateDTO, RealEstate>(realEstateDto);
+            Mapper.Initialize(cfg => cfg.CreateMap<RealEstateDTO, RealEstateOld>());
+            RealEstateOld realEstate = Mapper.Map<RealEstateDTO, RealEstateOld>(realEstateDto);
 
             return service.CreateItem(realEstate, x => x.GrossArea == realEstate.GrossArea && x.NumberOfRooms == realEstate.NumberOfRooms &&
             x.RealEstateClassId == realEstate.RealEstateClassId && x.RealEstateTypeWallId == realEstate.RealEstateTypeWallId&&
@@ -75,8 +75,8 @@ namespace RealEstateAgencyWebPart.BLL.Services
         }
         public bool UpdateRealEstate(RealEstateDTO realEstateDto)
         {
-            Mapper.Initialize(cfg => cfg.CreateMap<RealEstateDTO, RealEstate>());
-            RealEstate realEstate = Mapper.Map<RealEstateDTO, RealEstate>(realEstateDto);
+            Mapper.Initialize(cfg => cfg.CreateMap<RealEstateDTO, RealEstateOld>());
+            RealEstateOld realEstate = Mapper.Map<RealEstateDTO, RealEstateOld>(realEstateDto);
 
             return service.UpdateItem(realEstate);
         }

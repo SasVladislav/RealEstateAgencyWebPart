@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace RealEstateAgencyWebPart.DAL.Models
 {
-    public class Journal
+    public class Orders
     {
         public int Id { get; set; }
         
@@ -19,6 +19,6 @@ namespace RealEstateAgencyWebPart.DAL.Models
         //[ForeignKey("UserId")]
         public virtual User User { get; set; }
         public virtual RealEstate RealEstate { get; set; }
-        public virtual JournalStateOrder JournalStateOrder { get; set; }
+        public virtual OrderState JournalStateOrder { get; set; }
     }
 }

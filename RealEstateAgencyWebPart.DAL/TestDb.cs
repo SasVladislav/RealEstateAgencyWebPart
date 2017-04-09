@@ -14,7 +14,7 @@ namespace RealEstateAgencyWebPart.DAL
         {
             using (var dbConnection = new RealEstateDbContext())
             {
-                dbConnection.RealEstateClasses.Add(new RealEstateClass() { RealEstateClassName="Okey"});
+                dbConnection.OrderStates.Add(new OrderState() { JournalStateOrderName="Okey"});
                 dbConnection.SaveChanges();
 
             }
@@ -23,7 +23,7 @@ namespace RealEstateAgencyWebPart.DAL
         {
             using (var dbConnection = new RealEstateDbContext())
             {
-                return dbConnection.RealEstateClasses.FirstOrDefault().RealEstateClassName;
+                return dbConnection.OrderStates.FirstOrDefault().JournalStateOrderName;
 
             }
         }

@@ -29,20 +29,20 @@ namespace RealEstateAgencyWebPart.View
             AppDomain.CurrentDomain.SetData("DataDirectory", Directory.GetCurrentDirectory());
 
 
-            //Console.WriteLine(new RealEstateClassService().GetAllRecordsRealEstateClassByExpression(x => x.RealEstateClassName == "Okey").FirstOrDefault().RealEstateClassName);
-            //using (var ctx = new RealEstateDbContext())
-            //{
-            //    using (var writer = new XmlTextWriter($@"{AppDomain.CurrentDomain.BaseDirectory}\RealEstateAgencyModel.edmx", Encoding.Default))
-            //    {
-            //        EdmxWriter.WriteEdmx(ctx, writer);
-            //    }
-            //}
+           // Console.WriteLine(new RealEstateClassService().GetAllRecordsRealEstateClassByExpression(x => x.RealEstateClassName == "Okey").FirstOrDefault().RealEstateClassName);
+            using (var ctx = new RealEstateDbContext())
+            {
+                using (var writer = new XmlTextWriter($@"{AppDomain.CurrentDomain.BaseDirectory}\RealEstateAgencyModel.edmx", Encoding.Default))
+                {
+                    EdmxWriter.WriteEdmx(ctx, writer);
+                }
+            }
             Console.WriteLine(new TestDb().ClassName());
-            int stateid = new RealEstateStateService().CreateRealEstateState(CreateRealEstateState());
-            Console.WriteLine(new RealEstateStateService().GetRealEstateStateById(stateid).RealEstateStateName);
-            new RealEstateStateService().DeleteRealEstateState(stateid);
-            var item = new RealEstateStateService().GetRealEstateStateById(stateid);
-            Console.WriteLine(item == null?"Объект удален": item.RealEstateStateName);
+            //int stateid = new RealEstateStateService().CreateRealEstateState(CreateRealEstateState());
+            //Console.WriteLine(new RealEstateStateService().GetRealEstateStateById(stateid).RealEstateStateName);
+            //new RealEstateStateService().DeleteRealEstateState(stateid);
+            //var item = new RealEstateStateService().GetRealEstateStateById(stateid);
+            //Console.WriteLine(item == null?"Объект удален": item.RealEstateStateName);
             Console.ReadKey();
         }
     }

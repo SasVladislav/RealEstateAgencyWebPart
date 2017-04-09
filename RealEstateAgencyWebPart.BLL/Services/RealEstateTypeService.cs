@@ -15,46 +15,46 @@ namespace RealEstateAgencyWebPart.BLL.Services
 {
     public class RealEstateTypeService:IRealEstateTypeService
     {
-        GenericServiceEntity<RealEstateType> service = new GenericServiceEntity<RealEstateType>();
+        GenericServiceEntity<RealEstateTypeOld> service = new GenericServiceEntity<RealEstateTypeOld>();
         public IEnumerable<RealEstateTypeDTO> GetAllRecordsRealEstateTypeByExpression(Expression<Func<RealEstateTypeDTO, bool>> whereDTO = null)
         {
-            Mapper.Initialize(cfg => cfg.CreateMap<RealEstateType, RealEstateTypeDTO>());
-            Expression<Func<RealEstateType, bool>> where = Mapper.Map<Expression<Func<RealEstateType, bool>>>(whereDTO);
+            Mapper.Initialize(cfg => cfg.CreateMap<RealEstateTypeOld, RealEstateTypeDTO>());
+            Expression<Func<RealEstateTypeOld, bool>> where = Mapper.Map<Expression<Func<RealEstateTypeOld, bool>>>(whereDTO);
 
-            Mapper.Initialize(cfg => cfg.CreateMap<RealEstateType, RealEstateTypeDTO>());
-            List<RealEstateTypeDTO> RealEstateTypes = Mapper.Map<List<RealEstateType>, List<RealEstateTypeDTO>>(service.FindAll(where).ToList());
+            Mapper.Initialize(cfg => cfg.CreateMap<RealEstateTypeOld, RealEstateTypeDTO>());
+            List<RealEstateTypeDTO> RealEstateTypes = Mapper.Map<List<RealEstateTypeOld>, List<RealEstateTypeDTO>>(service.FindAll(where).ToList());
 
             return RealEstateTypes;
         }
 
         public IEnumerable<RealEstateTypeDTO> GetAllRealEstateTypes()
         {
-            Mapper.Initialize(cfg => cfg.CreateMap<RealEstateType, RealEstateTypeDTO>());
-            List<RealEstateTypeDTO> list = Mapper.Map<List<RealEstateType>, List<RealEstateTypeDTO>>(service.FindAll().ToList());
+            Mapper.Initialize(cfg => cfg.CreateMap<RealEstateTypeOld, RealEstateTypeDTO>());
+            List<RealEstateTypeDTO> list = Mapper.Map<List<RealEstateTypeOld>, List<RealEstateTypeDTO>>(service.FindAll().ToList());
 
             return list;
         }
         public RealEstateTypeDTO GetRealEstateTypeByExpression(Expression<Func<RealEstateTypeDTO, bool>> whereDTO = null)
         {
-            Mapper.Initialize(cfg => cfg.CreateMap<RealEstateType, RealEstateTypeDTO>());
-            Expression<Func<RealEstateType, bool>> where = Mapper.Map<Expression<Func<RealEstateType, bool>>>(whereDTO);
+            Mapper.Initialize(cfg => cfg.CreateMap<RealEstateTypeOld, RealEstateTypeDTO>());
+            Expression<Func<RealEstateTypeOld, bool>> where = Mapper.Map<Expression<Func<RealEstateTypeOld, bool>>>(whereDTO);
 
-            Mapper.Initialize(cfg => cfg.CreateMap<RealEstateType, RealEstateTypeDTO>());
-            RealEstateTypeDTO realEstateType = Mapper.Map<RealEstateType, RealEstateTypeDTO>(service.FindOne(where));
+            Mapper.Initialize(cfg => cfg.CreateMap<RealEstateTypeOld, RealEstateTypeDTO>());
+            RealEstateTypeDTO realEstateType = Mapper.Map<RealEstateTypeOld, RealEstateTypeDTO>(service.FindOne(where));
 
             return realEstateType;
         }
         public RealEstateTypeDTO GetRealEstateTypeById(int idRealEstateType)
         {
-            Mapper.Initialize(cfg => cfg.CreateMap<RealEstateType, RealEstateTypeDTO>());
-            RealEstateTypeDTO realEstateTypeObjectDto = Mapper.Map<RealEstateType, RealEstateTypeDTO>(service.FindById(idRealEstateType));
+            Mapper.Initialize(cfg => cfg.CreateMap<RealEstateTypeOld, RealEstateTypeDTO>());
+            RealEstateTypeDTO realEstateTypeObjectDto = Mapper.Map<RealEstateTypeOld, RealEstateTypeDTO>(service.FindById(idRealEstateType));
 
             return realEstateTypeObjectDto;
         }
 
         public List<RealEstateTypeDTO> FilterRealEstateTypes(RealEstateTypeDTO realEstateType)
         {
-            List<RealEstateTypeDTO> list = Mapper.Map<List<RealEstateType>, List<RealEstateTypeDTO>>(service.FindAll().ToList());
+            List<RealEstateTypeDTO> list = Mapper.Map<List<RealEstateTypeOld>, List<RealEstateTypeDTO>>(service.FindAll().ToList());
             if (realEstateType.Id != 0) list = list.Where(x => x.Id == realEstateType.Id).ToList();
             if (realEstateType.RealEstateTypeName != null) list = list.Where(x => x.RealEstateTypeName == realEstateType.RealEstateTypeName).ToList();
             return list;
@@ -62,15 +62,15 @@ namespace RealEstateAgencyWebPart.BLL.Services
 
         public int CreateRealEstateType(RealEstateTypeDTO realEstateTypeDto)
         {
-            Mapper.Initialize(cfg => cfg.CreateMap<RealEstateTypeDTO, RealEstateType>());
-            RealEstateType realEstateType = Mapper.Map<RealEstateTypeDTO, RealEstateType>(realEstateTypeDto);
+            Mapper.Initialize(cfg => cfg.CreateMap<RealEstateTypeDTO, RealEstateTypeOld>());
+            RealEstateTypeOld realEstateType = Mapper.Map<RealEstateTypeDTO, RealEstateTypeOld>(realEstateTypeDto);
 
             return service.CreateItem(realEstateType, x => x.RealEstateTypeName == realEstateType.RealEstateTypeName).Id;
         }
         public bool UpdateRealEstateType(RealEstateTypeDTO realEstateTypeDto)
         {
-            Mapper.Initialize(cfg => cfg.CreateMap<RealEstateTypeDTO, RealEstateType>());
-            RealEstateType realEstateType = Mapper.Map<RealEstateTypeDTO, RealEstateType>(realEstateTypeDto);
+            Mapper.Initialize(cfg => cfg.CreateMap<RealEstateTypeDTO, RealEstateTypeOld>());
+            RealEstateTypeOld realEstateType = Mapper.Map<RealEstateTypeDTO, RealEstateTypeOld>(realEstateTypeDto);
 
             return service.UpdateItem(realEstateType);
         }
